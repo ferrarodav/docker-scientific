@@ -3,7 +3,7 @@ FROM python:3.6
 LABEL maintainer="Davide Ferraro <ferraro.dav@gmail.com>" \
     name="Experiment with Data Science" \
     description="Docker container with basic python packages for computation, visualization and experiment logging." \
-    version="0.1"
+    version="0.2"
 
 # Upgrade pip
 RUN pip install --no-cache-dir --upgrade pip
@@ -41,6 +41,7 @@ RUN git clone -b ${OPENCV_VERSION} --depth 1 https://github.com/opencv/opencv.gi
 
 # Base packages
 ENV PIP_PACKAGES_BASE="\
+    opencv-python \
     numpy \
     Cython \
     matplotlib \

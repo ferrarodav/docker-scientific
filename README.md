@@ -1,21 +1,6 @@
 # Experiment with Data Science
 
-The Docker container has many packages to do numerical computation and visualize data:
-- Numpy
-- Cython
-- OpenCV (and opencv-python)
-- Matplotlib
-- Pandas
-- Seaborn
-- Scipy
-- Scikit-learn
-- Scikit-image
-- Jupyter (and the extensions configurator)
-- Xgboost
-- H5py
-- Requests
-- Pillow
-- Networkx
+The Docker container has many packages to do numerical computation and visualize data: Numpy, Cython, OpenCV (and opencv-python), Matplotlib, Pandas, Seaborn, Scipy, Scikit-learn, Scikit-image, Jupyter (and the extensions configurator), Xgboost, H5py, Requests, Pillow, Networkx.
 
 It also has [Sacred](https://github.com/IDSIA/sacred), a tool to help you configure, organize, log and reproduce experiments developed at IDSIA.
 The packages needed to keep track of the code (git), use a mongo database, yaml configuration and a telegram bot notifier are included.
@@ -31,12 +16,16 @@ It needs two environment variables:
 - DB_NAME: the name of the database that omniboard should look to.
 
 Here an example:
-`export CODE="/absolute/path/to/code/folder";
-export DB_NAME="EXPERIMENT";
+```bash
+export CODE="/ABSOLUTE/PATH/TO/CODE/FOLDER"
+export DB_NAME="EXPERIMENT"
 docker swarm init
-docker stack deploy -c docker-compose.yml STACKNAME`
+docker stack deploy -c docker-compose.yml STACKNAME
+```
 
 ## Run Jupyter server alone
 You can run it directly:
-`docker pull ferrarodav
-docker run -p 8080:8080 -v /path/to/folder:/home/workspace --name CONTAINERNAME ferrarodav/scientific`
+```bash
+docker pull ferrarodav
+docker run -p 8080:8080 -v /PATH/TO/FOLDER:/home/workspace --name CONTAINERNAME ferrarodav/scientific
+```
