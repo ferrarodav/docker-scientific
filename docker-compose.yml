@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  experiment:
+    image: ferrarodav/scientific:latest
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    volumes:
+      - ${CODE}:/home/workspace
+
+  visualize:
+    image: vivekratnavel/omniboard:latest
+    command: omniboard -m db:8082:${DB_NAME:-experiment}
+    ports:
+      - "8081:9000"
+    depends_on:
+      - db
+
+  db:
+    image: mongo:latest
+    ports:
+      - "8082:27017"
+    volumes:
+      - database:/data/db
+
+volumes:
+  database:
